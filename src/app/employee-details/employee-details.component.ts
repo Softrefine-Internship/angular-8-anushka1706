@@ -12,16 +12,16 @@ export class EmployeeDetailsComponent implements OnInit {
   itemsPerPage = 5
   employeeData: any[] = []
   totalPages: number[] = []
-
+  allData : number[] = []
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getData((res: any[]) => {
-      this.employeeData = res;
+      this.allData = res;
+      this.employeeData = res
       this.calculateTotalPages();
     });
   }
-
   calculateTotalPages() {
     const total = Math.ceil(this.employeeData.length / this.itemsPerPage);
     this.totalPages = Array.from({ length: total }, (_, i) => i + 1);
