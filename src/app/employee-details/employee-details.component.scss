@@ -1,0 +1,42 @@
+.employee-container {
+  margin-top: 2rem;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: hidden;
+  .options-group {
+    display: flex;
+    justify-content: start;
+    gap: 2rem;
+
+    select {
+      padding: 5px 8px;
+      border-radius: 5px;
+      border: 2px solid grey;
+    }
+  }
+  .table-container {
+    padding: 1rem;
+    height: 90%;
+    max-height: 100%;
+    overflow-y: auto;
+    table {
+      margin-top: 2rem;
+      width: 80%;
+      thead tr {
+        background-color: rgb(226, 226, 226);
+        font-size: 2rem;
+      }
+      tbody tr {
+        padding: 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        td {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+.sub-heading {
+  font-size: 1.5rem;
+}

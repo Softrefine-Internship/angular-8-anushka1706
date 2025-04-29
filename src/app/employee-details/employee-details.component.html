@@ -1,0 +1,36 @@
+<div class="employee-container">
+  <div class="options-group">
+    <label class="sub-heading">Records per page : </label>
+    <select [(ngModel)]="itemsPerPage" (change)="calculateTotalPages()">
+      <option *ngFor="let opts of totalItems" [value]="opts">{{ opts }}</option>
+    </select>
+
+    <label class="sub-heading">Next : </label>
+    <select [(ngModel)]="currentPage">
+      <option *ngFor="let page of totalPages" [value]="page">{{ page }}</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let emp of employeeData | pagination : currentPage : itemsPerPage">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.employee_name }}</td>
+            <td>{{ emp.employee_salary | salaryFormat }}</td>
+            <td>{{ emp.employee_age }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
